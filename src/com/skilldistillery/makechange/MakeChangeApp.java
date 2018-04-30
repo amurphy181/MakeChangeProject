@@ -21,6 +21,10 @@ public class MakeChangeApp {
 		System.out.println(firstResponse);
 
 		while (diff > 0){
+			
+		System.out.println("Twenties: " + twenty(diff));
+		diff = diff - twenty(diff) * 2000;
+		
 		System.out.println("Tens: " + ten(diff));
 		diff = diff - ten(diff) * 1000;
 		
@@ -83,6 +87,12 @@ public class MakeChangeApp {
 		return tendered;
 	}
 
+	public static int twenty(int diff) {
+		double temp = diff % 2000;
+		int twenty = (int) ((diff - temp) / 2000);
+		diff = diff - (twenty * 2000);
+		return twenty;
+	}
 	public static int ten(int diff) {
 		double temp = diff % 1000;
 		int ten = (int) ((diff - temp) / 1000);
